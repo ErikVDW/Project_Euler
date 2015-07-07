@@ -8,12 +8,6 @@ The first natural number below 1000 is 999.
 First, we create a function called Solution1 for readability that takes no variables (we already know which numbers to use to find multiples (3 and 5) and have lower and upper bounds).
 Next, we initialize variables.
 
-To find the <i>sum</i> of the
-
-
-
-
-
 
 */
 
@@ -44,6 +38,32 @@ var solution1 = function(){
   
 };
 
+/* SOLUTION 2 - Even Fibonacci numbers
+A number A is even if A % 2 = 0. 
+Here we must generate a Fibonacci number and check if it is even.
+*/
+
+var solution2 = function() {
+  var upLimit = 4000000;
+  var fib1 = 1;
+  var fib2 = 2;
+  var fibNext = 3;
+  var sum = 0;
+  
+  for ( fib1; fibNext < upLimit; fibNext = fib1+fib2 ) {
+    console.log(fibNext);
+    if ( fibNext % 2 == 0) {
+      sum += fibNext;
+    }
+    else {}
+    
+    fib1 = fib2;
+    fib2 = fibNext;
+  };
+  
+  
+  return sum+2;
+}
 
 /* NOTES
 
