@@ -1,4 +1,4 @@
-/* SOLUTION 1 - Find the sum of all the multiples of 3 or 5 below 1000.
+/* SOLUTfactorTestON 1 - Find the sum of all the multiples of 3 or 5 below 1000.
 A number (A) is a multiple of another number (B) if B can be multiplied by an integer to get A.
 To put this another way, if the remainder when A is divided by B is zero, A is a multiple of B.
 The modulo operator can help us here as we can write the above sentence pseudo-mathematically: A % B = 0.
@@ -55,15 +55,53 @@ var solution2 = function() {
     if ( fibNext % 2 == 0) {
       sum += fibNext;
     }
-    else {}
     
     fib1 = fib2;
     fib2 = fibNext;
-  };
+  }
   
   
   return sum+2;
-}
+};
+
+/* SOLUTION 3 - Largest prime factor
+A number A is a factor of another number B if A can be multiplied by an integer to get B.
+To put it another way, (B / A) % 1 = 0
+A number C is prime if no number is its factor other than itself or 1.
+To put it another way, if D is any integer between C and 1, C % D != 0
+
+
+*/
+
+var num = 26*4;
+var factorTest = num - 1; // factorTest= 10
+var primeTest = factorTest -1; // primeTest = 9
+var solution3 = function() {
+  while ( factorTest > 1 ) {
+    console.log("factorTest: " + factorTest);
+    
+    if ( num % factorTest == 0 ) {
+      console.log(factorTest + " is a factor");
+      
+      var confirmedNotPrime = false;
+      
+      while ( primeTest > 0 && confirmedNotPrime == false) {
+        console.log("Testing primeTest: " + primeTest);
+        
+        if ( factorTest % primeTest == 0 ) {
+          console.log(factorTest + " is not prime");
+          confirmedNotPrime = true; // primeTest = 5
+        }
+        primeTest --; // primeTest = 4
+        if ( primeTest == 1 ) {
+            return "Hooray: " + factorTest + " is the largest prime factor!";
+        }
+      }
+    } 
+    factorTest --;
+    primeTest = factorTest -1;
+  }
+};
 
 /* NOTES
 
